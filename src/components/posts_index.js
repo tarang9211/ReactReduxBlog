@@ -18,9 +18,5 @@ class PostsIndex extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchPosts }, dispatch);
-}
-
 //fetchPosts action is available as this.props.fetchPosts
-export default connect(null, mapDispatchToProps)(PostsIndex);
+export default connect(null, { fetchPosts: fetchPosts })(PostsIndex);
