@@ -39,7 +39,7 @@ class PostsIndex extends Component {
 }
 
 function mapStateToProps(state) {
-  return { posts: state.posts.all }
+  return { posts: state.posts.all };
 }
 //fetchPosts action is available as this.props.fetchPosts
 export default connect(mapStateToProps, { fetchPosts: fetchPosts })(PostsIndex);
