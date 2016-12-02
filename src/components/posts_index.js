@@ -13,7 +13,7 @@ class PostsIndex extends Component {
     this.props.deletePost(id)
       .then(() => {
         this.props.fetchPosts();
-      })
+      });
   }
 
   renderPosts() {
