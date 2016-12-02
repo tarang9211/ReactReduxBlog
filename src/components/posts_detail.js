@@ -8,12 +8,22 @@ class PostsDetail extends Component {
   }
 
   render() {
+    const {post} = this.props
+    if (!post) {
+      return <div>Loading...</div> //loading spinner could go here
+    }
     return (
       <div>
-        {this.props.params.id}
+        <h3>{post.title}</h3>
+        <h6>Categories: {post.categories}</h6>
+        <p>Content: {post.content}</p>
       </div>
     )
   };
 }
 
-export default connect(null, { fetchPost: fetchPost })(PostsDetail);
+function mapStateToProps(state) {
+  return {post: state.posts.post};
+}
+
+export default connect(mapStateToProps, { fetchPost: fetchPost })(PostsDetail);
