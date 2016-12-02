@@ -7,6 +7,7 @@
     "installedESLint": true,
     "parserOptions": {
         "ecmaFeatures": {
+            "classes": true,
             "experimentalObjectRestSpread": true,
             "jsx": true
         },
@@ -16,6 +17,8 @@
         "react"
     ],
     "rules": {
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
         "indent": [
             "error",
             2
