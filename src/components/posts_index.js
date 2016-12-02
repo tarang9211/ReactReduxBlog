@@ -12,9 +12,10 @@ class PostsIndex extends Component {
   renderPosts() {
     return this.props.posts.map((post) => {
       return (
-        <li className='list-group-item' key={post.id}>
+        <li className='list-group-item padding-bottom' key={post.id}>
+          <button className='btn btn-danger pull-xs-right'>Delete</button>
           <Link to={'/posts/' + post.id}>
-            <span className='pull-xs-right'>{post.categories}</span>
+            <span className='pull-xs-right margin-right'>{post.categories}</span>
             <strong>{post.title}</strong>
           </Link>
         </li>
