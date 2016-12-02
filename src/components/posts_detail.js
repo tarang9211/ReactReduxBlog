@@ -1,11 +1,18 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchPost} from '../actions/index';
+import {fetchPost, deletePost} from '../actions/index';
 import {Link} from 'react-router';
 
 class PostsDetail extends Component {
   componentWillMount() {
     this.props.fetchPost(this.props.params.id); //params is from the url route
+  }
+
+  handlePostDelete() {
+    this.props.deletePost(this.props.params.id)
+      .then(() => {
+
+      })
   }
 
   render() {
@@ -16,6 +23,11 @@ class PostsDetail extends Component {
     return (
       <div>
         <Link to="/">Back to index</Link>
+        <button
+          className='btn btn-danger pull-xs-right'
+          onClick={this.handlePostDelete.bind(this)}>
+          Delete
+        </button>
         <h3>{post.title}</h3>
         <h6>Categories: {post.categories}</h6>
         <p>Content: {post.content}</p>
@@ -28,4 +40,7 @@ function mapStateToProps(state) {
   return {post: state.posts.post};
 }
 
-export default connect(mapStateToProps, { fetchPost: fetchPost })(PostsDetail);
+export default connect(mapStateToProps, {
+  fetchPost: fetchPost,
+  deletePost: deletePost
+})(PostsDetail);
